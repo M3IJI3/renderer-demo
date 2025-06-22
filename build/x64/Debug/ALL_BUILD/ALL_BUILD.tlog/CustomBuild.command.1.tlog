@@ -1,0 +1,10 @@
+^C:\USERS\MAJOR\DOWNLOADS\RENDERER-DEMO\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/major/Downloads/renderer-demo -BC:/Users/major/Downloads/renderer-demo/build --check-stamp-file C:/Users/major/Downloads/renderer-demo/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

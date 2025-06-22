@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "renderer_demo.dir\\Debug\\main.obj",
+            "outputs": [
+                "C:\\Users\\major\\Downloads\\renderer-demo\\build\\renderer_demo.dir\\Debug\\vc143.pdb",
+                "renderer_demo.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "renderer_demo.dir\\Release\\mat4.obj",
+            "outputs": [
+                "renderer_demo.dir\\Release\\"
+            ],
+            "requires": []
+        }
+    ]
+}

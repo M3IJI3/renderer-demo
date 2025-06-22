@@ -1,0 +1,3 @@
+C:/Users/major/Downloads/renderer-demo/build/CMakeFiles/renderer_demo.dir
+C:/Users/major/Downloads/renderer-demo/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/major/Downloads/renderer-demo/build/CMakeFiles/ZERO_CHECK.dir

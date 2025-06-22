@@ -1,0 +1,10 @@
+^C:\USERS\MAJOR\DOWNLOADS\RENDERER-DEMO\BUILD\CMAKEFILES\2C54DA80C0D93DBEFDD50FAEB87D6DCB\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/major/Downloads/renderer-demo -BC:/Users/major/Downloads/renderer-demo/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/major/Downloads/renderer-demo/build/renderer_demo.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
