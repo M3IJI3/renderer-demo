@@ -50,3 +50,50 @@ inline void testcase3()
     std::cout << "Translate(5,-3,2) * (1,2,3,1) = ("
               << p3.x << "," << p3.y << "," << p3.z << "," << p3.w << ")\n";
 }
+
+inline void testcase4()
+{
+    // 定义一个简单的三角形（物体空间顶点）
+    Vec3 tri[3] = {
+        { -0.5f, -0.5f, 0.0f },
+        {  0.5f, -0.5f, 0.0f },
+        {  0.0f,  0.5f, 0.0f }
+    };
+
+    // 1. 模型矩阵：这里只做平移
+    Mat4 Model = Mat4::translate(0.0f, 0.0f, 0.0f);
+
+    // 2. 视图矩阵：相机在 (0,0,2) 看向原点
+    Mat4 View = Mat4::lookAt(
+      Vec3{0,0,2},  // eye
+      Vec3{0,0,0},  // center
+      Vec3{0,1,0}   // up
+    );
+
+    // 3. 投影矩阵：45° 视场，宽高比 800/600，近平面 0.1，远平面 100
+    Mat4 Projection = Mat4::perspective(
+      45.0f * 3.1415926f / 180.0f,
+      800.0f/600.0f,
+      0.1f,
+      100.0f
+    );
+
+    // 合成 MVP
+    const Mat4 MVP = Projection * View * Model;
+
+    // 屏幕尺寸
+    const float width = 800.0f, height = 600.0f;
+
+    // 对每个顶点做变换
+    for(int i = 0; i < 3; i++) {
+        Vec4 v = Vec4(tri[i].x, tri[i].y, tri[i].z, 1.0f);
+        Vec4 clip = MVP * v;              // 裁剪空间
+        Vec3 ndc = clip.toVec3();         // 归一化设备坐标 (-1~1)
+        // 视口变换到屏幕坐标
+        int x = int((ndc.x * 0.5f + 0.5f) * width);
+        int y = int((ndc.y * 0.5f + 0.5f) * height);
+        std::cout << "Vertex " << i
+                  << " -> Screen ("
+                  << x << ", " << y << ")\n";
+    }
+}

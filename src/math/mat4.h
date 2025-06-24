@@ -54,4 +54,37 @@ struct Mat4
         r.w = m[3][0]*o.x + m[3][1]*o.y + m[3][2]*o.z + m[3][3]*o.w;
         return r;
     }
+
+    // 透视投影矩阵
+    // fovY: 垂直视场角 (弧度), aspect: 宽高比 (width/height)
+    // zn: 近平面距离, zf: 远平面距离
+    static Mat4 perspective(const float fovy, const float aspect, const float zn, const float zf)
+    {
+        float tanHalfFovy = std::tan(fovy * 0.5f);
+        Mat4 P{};
+        P.m[0][0] = 1.0f / (aspect * tanHalfFovy);
+        P.m[1][1] = 1.0f / (tanHalfFovy);
+        P.m[2][2] = -(zf + zn) / (zf - zn);
+        P.m[2][3] = -2.0f * zf * zn / (zf - zn);
+        P.m[3][2] = -1.0f;
+        // 其余元素默认为 0
+        return P;
+    }
+
+    // LookAt 视图矩阵
+    // eye：相机位置，center：目标点，up：上方向
+    static Mat4 lookAt(const Vec3& eye, const Vec3& center, const Vec3& up)
+    {
+        const Vec3 f = (center - eye).normalize();   // 前向
+        const Vec3 s = f.cross(up).normalize();      // 右向
+        const Vec3 u = s.cross(f);                   // 真正的上向
+
+        Mat4 M = identity();
+        M.m[0][0] =  s.x; M.m[0][1] =  s.y; M.m[0][2] =  s.z;
+        M.m[1][0] =  u.x; M.m[1][1] =  u.y; M.m[1][2] =  u.z;
+        M.m[2][0] = -f.x; M.m[2][1] = -f.y; M.m[2][2] = -f.z;
+
+        const Mat4 T = translate(-eye.x, -eye.y, -eye.z);
+        return M * T;
+    }
 };

@@ -1,7 +1,7 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\major\\downloads\\renderer-demo\\src\\test\\case.cpp",
+        "Source": "c:\\users\\major\\downloads\\renderer-demo\\src\\main.cpp",
         "ProvidedModule": "",
         "Includes": [
             "c:\\users\\major\\downloads\\renderer-demo\\src\\test\\case.h",
