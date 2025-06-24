@@ -329,6 +329,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\major\Downloads\renderer-demo\src\test\case.h" />
     <ClCompile Include="C:\Users\major\Downloads\renderer-demo\src\math\mat4.cpp" />
     <ClInclude Include="C:\Users\major\Downloads\renderer-demo\src\math\mat4.h" />
+    <ClInclude Include="C:\Users\major\Downloads\renderer-demo\src\framebuffer.h" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

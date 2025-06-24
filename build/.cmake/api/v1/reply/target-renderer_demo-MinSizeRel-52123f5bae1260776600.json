@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/renderer_demo.exe"
+			"path" : "MinSizeRel/renderer_demo.exe"
 		},
 		{
-			"path" : "Debug/renderer_demo.pdb"
+			"path" : "MinSizeRel/renderer_demo.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -std:c++20 -MDd -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O1 /Ob1 /DNDEBUG -std:c++20 -MD"
 				}
 			],
 			"language" : "CXX",
@@ -72,11 +72,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od /RTC1 -MDd -Zi",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O1 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL",
+				"fragment" : "/machine:x64 /INCREMENTAL:NO",
 				"role" : "flags"
 			},
 			{
@@ -117,7 +117,8 @@
 				2,
 				4,
 				6,
-				8
+				8,
+				9
 			]
 		}
 	],
@@ -171,6 +172,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/math/mat4.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/framebuffer.h",
 			"sourceGroupIndex" : 1
 		}
 	],

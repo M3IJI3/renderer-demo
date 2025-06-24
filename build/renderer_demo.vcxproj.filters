@@ -30,6 +30,9 @@
     <ClInclude Include="C:\Users\major\Downloads\renderer-demo\src\math\mat4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\major\Downloads\renderer-demo\src\framebuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\major\Downloads\renderer-demo\CMakeLists.txt" />

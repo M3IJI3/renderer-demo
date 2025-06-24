@@ -60,7 +60,7 @@ struct Mat4
     // zn: 近平面距离, zf: 远平面距离
     static Mat4 perspective(const float fovy, const float aspect, const float zn, const float zf)
     {
-        float tanHalfFovy = std::tan(fovy * 0.5f);
+        const float tanHalfFovy = std::tan(fovy * 0.5f);
         Mat4 P{};
         P.m[0][0] = 1.0f / (aspect * tanHalfFovy);
         P.m[1][1] = 1.0f / (tanHalfFovy);

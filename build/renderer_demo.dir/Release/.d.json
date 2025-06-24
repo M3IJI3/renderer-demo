@@ -1,7 +1,7 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\major\\downloads\\renderer-demo\\src\\main.cpp",
+        "Source": "c:\\users\\major\\downloads\\renderer-demo\\src\\test\\case.cpp",
         "ProvidedModule": "",
         "Includes": [
             "c:\\users\\major\\downloads\\renderer-demo\\src\\test\\case.h",
@@ -112,6 +112,11 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\ctype.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\clocale",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\locale.h",
+            "c:\\users\\major\\downloads\\renderer-demo\\src\\framebuffer.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\vector",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_bit_utils.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\fstream",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_filebuf.hpp",
             "c:\\users\\major\\downloads\\renderer-demo\\src\\math\\mat4.h",
             "c:\\users\\major\\downloads\\renderer-demo\\src\\math\\vec4.h",
             "c:\\users\\major\\downloads\\renderer-demo\\src\\math\\vec3.h",
@@ -119,7 +124,6 @@
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\sstream",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\string",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\ymath.h",
-            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\__msvc_bit_utils.hpp",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\emmintrin.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\xmmintrin.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.38.33130\\include\\mmintrin.h"

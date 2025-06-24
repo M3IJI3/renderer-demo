@@ -11,4 +11,5 @@ add_executable(renderer_demo src/main.cpp
         src/test/case.cpp
         src/test/case.h
         src/math/mat4.cpp
-        src/math/mat4.h)
+        src/math/mat4.h
+        src/framebuffer.h)

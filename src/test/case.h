@@ -5,6 +5,7 @@
 #pragma once
 #include <iostream>
 
+#include "../framebuffer.h"
 #include "../math/mat4.h"
 #include "../math/vec3.h"
 #include "../math/vec4.h"
@@ -53,6 +54,15 @@ inline void testcase3()
 
 inline void testcase4()
 {
+    FrameBuffer fb(800, 600);
+
+    for (int i = 0 ; i < 800*600 ; i++)
+    {
+        fb.color[i*3 + 0] = 50;
+        fb.color[i*3 + 1] = 50;
+        fb.color[i*3 + 2] = 50;
+    }
+
     // 定义一个简单的三角形（物体空间顶点）
     Vec3 tri[3] = {
         { -0.5f, -0.5f, 0.0f },
@@ -61,19 +71,19 @@ inline void testcase4()
     };
 
     // 1. 模型矩阵：这里只做平移
-    Mat4 Model = Mat4::translate(0.0f, 0.0f, 0.0f);
+    const Mat4 Model = Mat4::translate(0.0f, 0.0f, 0.0f);
 
     // 2. 视图矩阵：相机在 (0,0,2) 看向原点
-    Mat4 View = Mat4::lookAt(
+    const Mat4 View = Mat4::lookAt(
       Vec3{0,0,2},  // eye
       Vec3{0,0,0},  // center
       Vec3{0,1,0}   // up
     );
 
     // 3. 投影矩阵：45° 视场，宽高比 800/600，近平面 0.1，远平面 100
-    Mat4 Projection = Mat4::perspective(
+    const Mat4 Projection = Mat4::perspective(
       45.0f * 3.1415926f / 180.0f,
-      800.0f/600.0f,
+      800.0f / 600.0f,
       0.1f,
       100.0f
     );
@@ -90,10 +100,16 @@ inline void testcase4()
         Vec4 clip = MVP * v;              // 裁剪空间
         Vec3 ndc = clip.toVec3();         // 归一化设备坐标 (-1~1)
         // 视口变换到屏幕坐标
-        int x = int((ndc.x * 0.5f + 0.5f) * width);
-        int y = int((ndc.y * 0.5f + 0.5f) * height);
-        std::cout << "Vertex " << i
-                  << " -> Screen ("
-                  << x << ", " << y << ")\n";
+        const int   x = int((ndc.x * 0.5f + 0.5f) *  width);
+        const int   y = int((ndc.y * 0.5f + 0.5f) * height);
+        const float z = ndc.z;
+
+        const uint8_t r = (i==0) ? 255 : 0;
+        const uint8_t g = (i==1) ? 255 : 0;
+        const uint8_t b = (i==2) ? 255 : 0;
+        fb.setPixel(x, y, z, r, g, b);
     }
+
+    fb.writePPM("output.ppm");
+    std::cout << "Wrote out.ppm, open it to see three colored points.\n";
 }
